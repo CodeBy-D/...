@@ -108,5 +108,3 @@ musicButton.addEventListener("click", () => {
   }
 });
 // Mensagem especial (salva localmente)
-
-});
