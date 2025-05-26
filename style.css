@@ -154,9 +154,9 @@ body.dark #themeToggle {
 }
 .dedicatoria {
   position: fixed;
-  top: 80px;
+  top: 50px;
   left: 20px;
-  width: 250px;
+  width: 225px;
   background-color: #fffaf0;
   border: 2px solid #f9c74f;
   padding: 10px;
@@ -181,7 +181,7 @@ body.dark .dedicatoria {
 
 #dedicatory {
   width: 100%;
-  height: 250px;
+  height: 225px;
   resize: none;
   border: none;
   background: transparent;
