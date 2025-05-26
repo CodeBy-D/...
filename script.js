@@ -108,10 +108,5 @@ musicButton.addEventListener("click", () => {
   }
 });
 // Mensagem especial (salva localmente)
-const dedicatory = document.getElementById("dedicatory");
 
-dedicatory.value = localStorage.getItem("dedicatory") || "";
-
-dedicatory.addEventListener("input", () => {
-  localStorage.setItem("dedicatory", dedicatory.value);
 });
