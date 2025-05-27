@@ -84,4 +84,7 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       audio.pause();
       isPlaying = false;
-      musicButton.textContent = "🎵
+      musicButton.textContent = "🎵 Tocar Música";
+    }
+  });
+});
