@@ -191,6 +191,42 @@ body.dark .dedicatoria {
   outline: none;
 }
 
+/* Estilos padrão para notebook e telas grandes (já existentes) */
+.book {
+  display: flex;
+  gap: 10px;
+}
+
+/* ...restante do seu CSS... */
+
+/* Estilos para celular, telas até 600px */
+@media (max-width: 600px) {
+  .book {
+    flex-direction: column; /* empilha as páginas */
+    align-items: center;
+  }
+
+  .page {
+    width: 90vw;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+
+  .dedicatoria {
+    position: static; /* tira o fixed */
+    width: 90vw;
+    max-width: 350px;
+    margin: 10px auto 20px auto;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+
 
   
 
