@@ -14,6 +14,7 @@ body {
   background-color: var(--bg-light);
   color: var(--text-light);
   transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
 body.dark {
@@ -25,8 +26,8 @@ body.dark {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .cover {
@@ -35,7 +36,6 @@ body.dark {
   background-color: var(--accent);
   color: #3e2f1c;
   width: 620px;
-  max-width: 90%;
   height: 80px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -45,11 +45,19 @@ body.dark {
   margin-bottom: 20px;
 }
 
+/* NOVO container flexível que contém o livro e a dedicatória */
+.layout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 .book {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .page {
@@ -61,7 +69,6 @@ body.dark {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 8px;
-  max-width: 90vw;
 }
 
 body.dark .page {
@@ -119,7 +126,7 @@ body.dark #themeToggle {
   color: var(--heart-dark);
 }
 
-/* Corações flutuantes */
+/* Rastro de corações */
 .heart {
   position: absolute;
   width: 15px;
@@ -157,18 +164,16 @@ body.dark #themeToggle {
 }
 
 .dedicatoria {
-  margin: 40px auto 20px auto;
-  width: 90%;
-  max-width: 600px;
+  width: 225px;
   background-color: #fffaf0;
   border: 2px solid #f9c74f;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 10px;
+  border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   font-family: "Open Sans", sans-serif;
-  z-index: 1;
   position: relative;
-  text-align: justify;
+  z-index: 1;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark .dedicatoria {
@@ -180,34 +185,33 @@ body.dark .dedicatoria {
 .dedicatoria h2 {
   font-family: "Great Vibes", cursive;
   font-size: 22px;
-  margin: 0;
-  line-height: 1.5;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dedicatoria {
+    width: 90%;
+    margin-top: 20px;
+  }
+
   .book {
     flex-direction: column;
     align-items: center;
   }
 
-  .cover {
-    font-size: 24px;
-    height: auto;
-    padding: 10px;
-  }
-
   .page {
     width: 90%;
-    height: 300px;
   }
 
-  .dedicatoria {
-    padding: 15px;
-    font-size: 16px;
+  .cover {
+    width: 90%;
+    text-align: center;
   }
-
-  .dedicatoria h2 {
-    font-size: 18px;
-  }
 }
