@@ -26,8 +26,9 @@ body.dark {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   padding-top: 20px;
+  box-sizing: border-box;
 }
 
 .cover {
@@ -36,6 +37,7 @@ body.dark {
   background-color: var(--accent);
   color: #3e2f1c;
   width: 620px;
+  max-width: 95vw;
   height: 80px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -43,21 +45,14 @@ body.dark {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-}
-
-/* Container para livro + dedicatória */
-.layout-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  user-select: none;
 }
 
 .book {
   display: flex;
   gap: 10px;
+  max-width: 95vw;
+  box-sizing: border-box;
 }
 
 .page {
@@ -69,6 +64,7 @@ body.dark {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 body.dark .page {
@@ -96,13 +92,17 @@ textarea {
   font-size: 14px;
   font-style: italic;
   opacity: 0.6;
+  user-select: none;
 }
 
 .controls {
   margin-top: 20px;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 95vw;
 }
 
 .nav-button {
@@ -112,6 +112,7 @@ textarea {
   cursor: pointer;
   color: inherit;
   transition: color 0.3s;
+  user-select: none;
 }
 
 #themeToggle {
@@ -120,6 +121,7 @@ textarea {
   border: none;
   cursor: pointer;
   color: var(--heart-light);
+  user-select: none;
 }
 
 body.dark #themeToggle {
@@ -127,12 +129,15 @@ body.dark #themeToggle {
 }
 
 #musicToggle {
-  font-size: 26px;
-  background: none;
+  font-size: 20px;
+  background-color: #ffcc00;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  color: inherit;
-  transition: color 0.3s;
+  padding: 8px 15px;
+  margin-left: 10px;
+  font-weight: bold;
+  user-select: none;
 }
 
 /* Rastro de corações */
@@ -140,7 +145,7 @@ body.dark #themeToggle {
   position: absolute;
   width: 15px;
   height: 15px;
-  background-color: #ffcc00;
+  background-color: #ffcc00; /* cor amarela */
   clip-path: polygon(
     50% 0%,
     61% 14%,
@@ -173,6 +178,9 @@ body.dark #themeToggle {
 }
 
 .dedicatoria {
+  position: fixed;
+  top: 50px;
+  left: 20px;
   width: 225px;
   background-color: #fffaf0;
   border: 2px solid #f9c74f;
@@ -180,9 +188,10 @@ body.dark #themeToggle {
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   font-family: "Open Sans", sans-serif;
-  position: relative;
-  z-index: 1;
+  z-index: 100000;
   transition: background-color 0.3s, color 0.3s;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 body.dark .dedicatoria {
@@ -195,42 +204,42 @@ body.dark .dedicatoria {
   font-family: "Great Vibes", cursive;
   font-size: 22px;
   margin-bottom: 10px;
-  line-height: 1.4;
+  white-space: normal;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-  .layout-container {
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .dedicatoria {
-    width: 90%;
-    margin-top: 20px;
+@media (max-width: 900px) {
+  .book-container {
+    padding-top: 10px;
   }
-
+  .cover {
+    width: 90vw;
+    height: 60px;
+    font-size: 24px;
+  }
   .book {
     flex-direction: column;
     align-items: center;
   }
-
   .page {
-    width: 90%;
+    width: 90vw;
+    max-width: 400px;
+    height: 300px;
+    font-size: 24px;
   }
-
-  .cover {
-    width: 90%;
-    text-align: center;
+  textarea {
+    font-size: 24px;
+  }
+  .dedicatoria {
+    position: static;
+    width: 90vw;
+    max-height: none;
+    margin: 20px auto 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  .controls {
+    justify-content: center;
   }
-}
-#musicToggle {
-  font-size: 20px;
-  background-color: #ffcc00;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 8px 15px;
-  margin-left: 10px;
-  font-weight: bold;
 }
