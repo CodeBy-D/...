@@ -1,229 +1,194 @@
-:root {
-  --bg-light: #fff6e5;
-  --bg-dark: #1e1e1e;
-  --text-light: #5b3c11;
-  --text-dark: #f1f1f1;
-  --heart-light: #5b3c11;
-  --heart-dark: red;
-  --accent: #f9c74f;
+/* Reset básico */
+* {
+  box-sizing: border-box;
 }
 
 body {
+  font-family: 'Open Sans', sans-serif;
+  background: #fff7e6;
+  color: #5b3c11;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-light);
+  padding: 20px;
   transition: background-color 0.3s, color 0.3s;
+  position: relative;
   overflow-x: hidden;
 }
 
+/* Tema escuro */
 body.dark {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
+  background: #2c2c2c;
+  color: #f2f2f2;
 }
 
+/* Container do livro */
 .book-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  padding-top: 20px;
-  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
+/* Capa do livro */
 .cover {
-  font-family: "Great Vibes", cursive;
-  font-size: 30px;
-  background-color: var(--accent);
-  color: #3e2f1c;
-  width: 620px;
-  height: 80px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #b37500;
 }
 
+/* Container das páginas */
 .book {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
 }
 
+/* Cada página */
 .page {
-  width: 300px;
-  height: 400px;
-  background-color: #fffdfa;
-  border: 1px solid #d3b88c;
-  padding: 20px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  flex: 1;
   position: relative;
-  border-radius: 8px;
-}
-
-body.dark .page {
-  background-color: #2b2b2b;
-  border-color: #555;
 }
 
 textarea {
   width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
+  height: 300px;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #b37500;
+  border-radius: 8px;
   resize: none;
-  font-size: 30px;
-  font-family: "Great Vibes", cursive;
-  color: inherit;
-  line-height: 1.6;
-  outline: none;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff7e6;
+  color: #5b3c11;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+body.dark textarea {
+  background-color: #444;
+  color: #eee;
+  border-color: #ffaa00;
+}
+
+/* Número das páginas */
 .page-number {
   position: absolute;
-  bottom: 10px;
-  right: 15px;
-  font-size: 14px;
-  font-style: italic;
-  opacity: 0.6;
+  bottom: 5px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #b37500;
 }
 
+.left .page-number {
+  right: 10px;
+}
+
+.right .page-number {
+  right: 10px;
+}
+
+/* Botões de controle */
 .controls {
   display: flex;
-  gap: 15px;
-  align-items: center;
   justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-.nav-button,
-#themeToggle,
-#musicToggle {
-  font-size: 24px;
-  background: none;
+button {
+  font-size: 1.2rem;
+  padding: 8px 16px;
   border: none;
-  cursor: pointer;
-  color: inherit;
-  transition: color 0.3s;
-  padding: 8px 12px;
   border-radius: 6px;
-  box-shadow: 0 0 5px transparent;
+  cursor: pointer;
+  background-color: #ffcc00;
+  color: #5b3c11;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.nav-button:hover,
-#themeToggle:hover,
-#musicToggle:hover {
-  box-shadow: 0 0 10px var(--accent);
+button:hover {
+  background-color: #e6b800;
 }
 
+/* Botão tema */
 #themeToggle {
-  font-size: 30px;
-  color: var(--heart-light);
+  font-size: 1.8rem;
+  padding: 0 12px;
+  background: transparent;
+  color: #5b3c11;
+  font-weight: normal;
 }
 
-body.dark #themeToggle {
-  color: var(--heart-dark);
+/* Botão música */
+#musicToggle {
+  font-size: 1.5rem;
 }
 
-/* Rastro de corações */
+/* Dedicatória */
+.dedicatoria {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.dedicatoria h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #5b3c11;
+}
+
+/* Tema escuro dedicatória */
+body.dark .dedicatoria h2 {
+  color: #ddd;
+}
+
+/* Coração rastro */
 .heart {
   position: absolute;
   width: 15px;
   height: 15px;
-  background-color: #ffcc00;
-  clip-path: polygon(
-    50% 0%,
-    61% 14%,
-    75% 14%,
-    87% 25%,
-    87% 38%,
-    75% 50%,
-    50% 80%,
-    25% 50%,
-    13% 38%,
-    13% 25%,
-    25% 14%,
-    39% 14%
-  );
-  opacity: 0.8;
-  animation: float 0.8s ease-out forwards;
+  background: red;
+  transform: rotate(45deg);
   pointer-events: none;
+  animation: fadeOut 0.8s forwards;
   z-index: 9999;
 }
 
-@keyframes float {
-  0% {
-    transform: scale(1) translateY(0);
-    opacity: 0.3;
-  }
-  100% {
-    transform: scale(1.5) translateY(-50px);
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -7.5px;
+  left: 0;
+}
+
+.heart::after {
+  left: 7.5px;
+  top: 0;
+}
+
+@keyframes fadeOut {
+  to {
     opacity: 0;
+    transform: rotate(45deg) scale(2);
   }
 }
 
-.dedicatoria {
-  position: fixed;
-  top: 50px;
-  left: 20px;
-  width: 225px;
-  background-color: #fffaf0;
-  border: 2px solid #f9c74f;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: "Open Sans", sans-serif;
-  z-index: 100000;
-  transition: background-color 0.3s, color 0.3s;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-body.dark .dedicatoria {
-  background-color: #2b2b2b;
-  border-color: #555;
-  color: #f1f1f1;
-}
-
-.dedicatoria h2 {
-  font-family: "Great Vibes", cursive;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-/* Responsividade */
-@media (max-width: 700px) {
-  .book-container {
-    padding-top: 10px;
-  }
-
-  .cover {
-    width: 100%;
-    font-size: 26px;
-    height: 60px;
-  }
-
+/* Mobile - dedicatória fica embaixo */
+@media (max-width: 600px) {
   .book {
     flex-direction: column;
-    align-items: center;
   }
-
-  .page {
-    width: 90vw;
-    max-width: 350px;
-    height: 300px;
-  }
-
   .dedicatoria {
-    position: static;
-    width: 90vw;
-    margin: 10px auto;
-    max-height: none;
-    box-shadow: none;
-    border-radius: 8px;
-  }
-
-  .controls {
-    flex-wrap: wrap;
-    gap: 10px;
+    margin-top: 20px;
   }
 }
