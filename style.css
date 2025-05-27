@@ -191,15 +191,3 @@ body.dark .dedicatoria {
   outline: none;
 }
 
-@media (max-width: 600px) {
-  .seu-container {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente para melhorar a leitura */
-  }
-
-  .seu-texto {
-    font-size: 1.2em;
-    line-height: 1.5;
-    color: #000; /* Cor do texto para contraste */
-  }
-}
