@@ -5,7 +5,9 @@ const rightPage = document.getElementById("rightPage");
 const themeToggle = document.getElementById("themeToggle");
 const leftNumber = document.querySelector(".left .page-number");
 const rightNumber = document.querySelector(".right .page-number");
+const musicButton = document.getElementById("musicToggle");
 
+// Atualiza o conteúdo e números das páginas
 function updatePages() {
   leftPage.value = localStorage.getItem(page_${currentPage}) || "";
   rightPage.value = localStorage.getItem(page_${currentPage + 1}) || "";
@@ -13,20 +15,22 @@ function updatePages() {
   rightNumber.textContent = currentPage + 1;
 }
 
+// Salva conteúdo da página no localStorage
 function savePage(pageNumber, content) {
   localStorage.setItem(page_${pageNumber}, content);
 }
 
+// Eventos para salvar textos ao digitar
 leftPage.addEventListener("input", () => savePage(currentPage, leftPage.value));
-rightPage.addEventListener("input", () =>
-  savePage(currentPage + 1, rightPage.value)
-);
+rightPage.addEventListener("input", () => savePage(currentPage + 1, rightPage.value));
 
+// Navegação para página seguinte
 document.getElementById("nextPage").addEventListener("click", () => {
   currentPage += 2;
   updatePages();
 });
 
+// Navegação para página anterior
 document.getElementById("prevPage").addEventListener("click", () => {
   if (currentPage > 1) {
     currentPage -= 2;
@@ -34,6 +38,7 @@ document.getElementById("prevPage").addEventListener("click", () => {
   }
 });
 
+// Alternar tema claro/escuro
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   themeToggle.style.color = document.body.classList.contains("dark")
@@ -45,6 +50,7 @@ themeToggle.addEventListener("click", () => {
   );
 });
 
+// Inicializa página e tema no carregamento da página
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
@@ -55,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
   updatePages();
 });
 
-// Hearts trail
+// Efeito de corações que flutuam no mousemove
 let heartTimeout;
 document.addEventListener("mousemove", (e) => {
   if (heartTimeout) clearTimeout(heartTimeout);
@@ -70,10 +76,9 @@ document.addEventListener("mousemove", (e) => {
 });
 
 // Música
-const audio = new Audio("AUD-20250525-WA0002.dat"); // Substitua pelo seu arquivo .mp3 ou .ogg
-const musicButton = document.getElementById("musicToggle");
-
+const audio = new Audio("AUD-20250525-WA0002.dat"); // Troque para o caminho correto do áudio
 let isPlaying = false;
+
 musicButton.addEventListener("click", () => {
   if (!isPlaying) {
     audio.play();
@@ -84,5 +89,4 @@ musicButton.addEventListener("click", () => {
     isPlaying = false;
     musicButton.textContent = "🎵 Tocar Música";
   }
-  
 });
