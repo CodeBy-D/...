@@ -242,7 +242,8 @@ body.dark .dedicatoria {
   }
 
   .dedicatoria {
-    position: static;
+    position: center;
+    bottom: 80px;
     width: 90vw;
     max-width: 350px;
     margin: 20px auto 0 auto;
