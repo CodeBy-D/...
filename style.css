@@ -45,7 +45,7 @@ body.dark {
   margin-bottom: 20px;
 }
 
-/* NOVO container flexível que contém o livro e a dedicatória */
+/* Container para livro + dedicatória */
 .layout-container {
   display: flex;
   flex-direction: row;
@@ -124,6 +124,15 @@ textarea {
 
 body.dark #themeToggle {
   color: var(--heart-dark);
+}
+
+#musicToggle {
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.3s;
 }
 
 /* Rastro de corações */
@@ -212,6 +221,6 @@ body.dark .dedicatoria {
 
   .cover {
     width: 90%;
-    text-align: center;
-  }
+    text-align: center;
+  }
 }
