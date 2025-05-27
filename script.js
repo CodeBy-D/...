@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const leftNumber = document.querySelector(".left .page-number");
   const rightNumber = document.querySelector(".right .page-number");
 
-  // Atualiza conteúdo e números das páginas
   function updatePages() {
     leftPage.value = localStorage.getItem(page_${currentPage}) || "";
     rightPage.value = localStorage.getItem(page_${currentPage + 1}) || "";
@@ -16,15 +15,12 @@ window.addEventListener("DOMContentLoaded", () => {
     rightNumber.textContent = currentPage + 1;
   }
 
-  // Salva no localStorage
   function savePage(pageNumber, content) {
     localStorage.setItem(page_${pageNumber}, content);
   }
 
   leftPage.addEventListener("input", () => savePage(currentPage, leftPage.value));
-  rightPage.addEventListener("input", () =>
-    savePage(currentPage + 1, rightPage.value)
-  );
+  rightPage.addEventListener("input", () => savePage(currentPage + 1, rightPage.value));
 
   document.getElementById("nextPage").addEventListener("click", () => {
     currentPage += 2;
@@ -40,21 +36,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
-    themeToggle.style.color = document.body.classList.contains("dark")
-      ? "red"
-      : "#5b3c11";
-    localStorage.setItem(
-      "theme",
-      document.body.classList.contains("dark") ? "dark" : "light"
-    );
+    themeToggle.style.color = document.body.classList.contains("dark") ? "red" : "#5b3c11";
+    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
   });
 
+  // Aplica tema salvo no carregamento
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
   }
-  themeToggle.style.color = document.body.classList.contains("dark")
-    ? "red"
-    : "#5b3c11";
+  themeToggle.style.color = document.body.classList.contains("dark") ? "red" : "#5b3c11";
 
   updatePages();
 
@@ -73,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // Música
-  const audio = new Audio("AUD-20250525-WA0002.dat"); // Ajuste o caminho do áudio
+  const audio = new Audio("AUD-20250525-WA0002.dat"); // ajuste o caminho se necessário
   let isPlaying = false;
 
   musicButton.addEventListener("click", () => {
