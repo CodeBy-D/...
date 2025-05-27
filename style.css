@@ -191,15 +191,35 @@ body.dark .dedicatoria {
   outline: none;
 }
 
-@media (max-width: 600px) {
-  .seu-container {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente para melhorar a leitura */
-  }
+@media (max-width: 768px) {
+  .book {
+    flex-direction: column;
+    align-items: center;
+  }
 
-  .seu-texto {
-    font-size: 1.2em;
-    line-height: 1.5;
-    color: #000; /* Cor do texto para contraste */
+  .cover {
+    width: 90%;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .page {
+    width: 90%;
+    height: 300px;
+  }
+
+  .dedicatoria {
+    position: static;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .dedicatoria h2 {
+    font-size: 18px;
+    line-height: 1.4;
   }
+
+ 
 }
