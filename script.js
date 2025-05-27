@@ -8,6 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const leftNumber = document.querySelector(".left .page-number");
   const rightNumber = document.querySelector(".right .page-number");
 
+  // Atualiza o conteúdo e os números das páginas
   function updatePages() {
     leftPage.value = localStorage.getItem(page_${currentPage}) || "";
     rightPage.value = localStorage.getItem(page_${currentPage + 1}) || "";
@@ -15,6 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
     rightNumber.textContent = currentPage + 1;
   }
 
+  // Salva o conteúdo no localStorage
   function savePage(pageNumber, content) {
     localStorage.setItem(page_${pageNumber}, content);
   }
@@ -40,7 +42,6 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
   });
 
-  // Aplica tema salvo no carregamento
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
   }
@@ -63,7 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // Música
-  const audio = new Audio("AUD-20250525-WA0002.dat"); // ajuste o caminho se necessário
+  const audio = new Audio("AUD-20250525-WA0002.ogg"); // Troque para o arquivo correto
   let isPlaying = false;
 
   musicButton.addEventListener("click", () => {
