@@ -10,15 +10,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Atualiza o conteúdo e os números das páginas
   function updatePages() {
-    leftPage.value = localStorage.getItem(page_${currentPage}) || "";
-    rightPage.value = localStorage.getItem(page_${currentPage + 1}) || "";
+    leftPage.value = localStorage.getItem('page_${currentPage}') || "";
+    rightPage.value = localStorage.getItem('page_${currentPage + 1}') || "";
     leftNumber.textContent = currentPage;
     rightNumber.textContent = currentPage + 1;
   }
 
   // Salva o conteúdo no localStorage
   function savePage(pageNumber, content) {
-    localStorage.setItem(page_${pageNumber}, content);
+    localStorage.setItem(page_${'pageNumber}, content');
   }
 
   leftPage.addEventListener("input", () => savePage(currentPage, leftPage.value));
