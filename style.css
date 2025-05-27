@@ -190,3 +190,31 @@ body.dark .dedicatoria {
   font-family: "Open Sans", sans-serif;
   outline: none;
 }
+
+@media (max-width: 600px) {
+  .book {
+    flex-direction: column; /* muda de linha pra coluna */
+    align-items: center;
+  }
+
+  .page {
+    width: 90vw; /* ocupar quase toda a largura da tela */
+    max-width: 350px; /* limitar o tamanho máximo */
+    margin-bottom: 20px;
+  }
+
+  .dedicatoria {
+    position: static; /* tira o position fixed */
+    width: 90vw;
+    max-width: 350px;
+    margin: 0 auto 20px auto; /* centraliza e espaça */
+    border-radius: 10px;
+  }
+
+  .controls {
+    flex-wrap: wrap; /* para os botões não ficarem apertados */
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
