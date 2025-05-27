@@ -70,7 +70,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 // Música
-const audio = new Audio("sua-musica.mp3"); // Substitua pelo seu arquivo .mp3 ou .ogg
+const audio = new Audio("AUD-20250525-WA0002.dat"); // Substitua pelo seu arquivo .mp3 ou .ogg
 const musicButton = document.getElementById("musicToggle");
 
 let isPlaying = false;
@@ -84,4 +84,5 @@ musicButton.addEventListener("click", () => {
     isPlaying = false;
     musicButton.textContent = "🎵 Tocar Música";
   }
+  
 });
