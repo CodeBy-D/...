@@ -7,14 +7,14 @@ const leftNumber = document.querySelector(".left .page-number");
 const rightNumber = document.querySelector(".right .page-number");
 
 function updatePages() {
-  leftPage.value = localStorage.getItem(page_${currentPage}) || "";
-  rightPage.value = localStorage.getItem(page_${currentPage + 1}) || "";
+  leftPage.value = localStorage.getItem(`page_${currentPage}`) || "";
+  rightPage.value = localStorage.getItem(`page_${currentPage + 1}`) || "";
   leftNumber.textContent = currentPage;
   rightNumber.textContent = currentPage + 1;
 }
 
 function savePage(pageNumber, content) {
-  localStorage.setItem(page_${pageNumber}, content);
+  localStorage.setItem(`page_${pageNumber}`, content);
 }
 
 leftPage.addEventListener("input", () => savePage(currentPage, leftPage.value));
@@ -59,8 +59,8 @@ window.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("mousemove", (e) => {
   const heart = document.createElement("span");
   heart.classList.add("heart");
-  heart.style.left = ${e.pageX}px;
-  heart.style.top = ${e.pageY}px;
+  heart.style.left = `${e.pageX}px`;
+  heart.style.top = `${e.pageY}px`;
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 25);
 });
@@ -71,8 +71,8 @@ document.addEventListener("mousemove", (e) => {
 
   const heart = document.createElement("span");
   heart.classList.add("heart");
-  heart.style.left = ${e.pageX - 7}px;
-  heart.style.top = ${e.pageY - 7}px;
+  heart.style.left = `${e.pageX - 7}px`;
+  heart.style.top = `${e.pageY - 7}px`;
   document.body.appendChild(heart);
 
   heartTimeout = setTimeout(() => heart.remove(), 25);
@@ -100,10 +100,11 @@ musicButton.addEventListener("click", () => {
   if (!isPlaying) {
     audio.play();
     isPlaying = true;
-    musicButton.textContent = "⏸ Pausar Música";
+    musicButton.textContent = "⏸️ Pausar Música";
   } else {
     audio.pause();
     isPlaying = false;
     musicButton.textContent = "🎵 Tocar Música";
-  }
+  }
 });
+// Mensagem especial (salva localmente)
