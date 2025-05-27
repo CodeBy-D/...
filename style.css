@@ -28,7 +28,7 @@ body.dark {
   align-items: center;
   height: 100vh;
   padding-top: 20px;
-  box-sizing: border-box;
+  gap: 15px;
 }
 
 .cover {
@@ -37,22 +37,17 @@ body.dark {
   background-color: var(--accent);
   color: #3e2f1c;
   width: 620px;
-  max-width: 95vw;
   height: 80px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  user-select: none;
 }
 
 .book {
   display: flex;
   gap: 10px;
-  max-width: 95vw;
-  box-sizing: border-box;
 }
 
 .page {
@@ -64,7 +59,6 @@ body.dark {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 8px;
-  box-sizing: border-box;
 }
 
 body.dark .page {
@@ -92,52 +86,42 @@ textarea {
   font-size: 14px;
   font-style: italic;
   opacity: 0.6;
-  user-select: none;
 }
 
 .controls {
-  margin-top: 20px;
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: center;
-  max-width: 95vw;
 }
 
-.nav-button {
-  font-size: 28px;
+.nav-button,
+#themeToggle,
+#musicToggle {
+  font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
   color: inherit;
   transition: color 0.3s;
-  user-select: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px transparent;
+}
+
+.nav-button:hover,
+#themeToggle:hover,
+#musicToggle:hover {
+  box-shadow: 0 0 10px var(--accent);
 }
 
 #themeToggle {
   font-size: 30px;
-  background: none;
-  border: none;
-  cursor: pointer;
   color: var(--heart-light);
-  user-select: none;
 }
 
 body.dark #themeToggle {
   color: var(--heart-dark);
-}
-
-#musicToggle {
-  font-size: 20px;
-  background-color: #ffcc00;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 8px 15px;
-  margin-left: 10px;
-  font-weight: bold;
-  user-select: none;
 }
 
 /* Rastro de corações */
@@ -145,7 +129,7 @@ body.dark #themeToggle {
   position: absolute;
   width: 15px;
   height: 15px;
-  background-color: #ffcc00; /* cor amarela */
+  background-color: #ffcc00;
   clip-path: polygon(
     50% 0%,
     61% 14%,
@@ -190,8 +174,8 @@ body.dark #themeToggle {
   font-family: "Open Sans", sans-serif;
   z-index: 100000;
   transition: background-color 0.3s, color 0.3s;
-  overflow-y: auto;
   max-height: 80vh;
+  overflow-y: auto;
 }
 
 body.dark .dedicatoria {
@@ -204,42 +188,42 @@ body.dark .dedicatoria {
   font-family: "Great Vibes", cursive;
   font-size: 22px;
   margin-bottom: 10px;
-  white-space: normal;
 }
 
 /* Responsividade */
-
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .book-container {
     padding-top: 10px;
   }
+
   .cover {
-    width: 90vw;
+    width: 100%;
+    font-size: 26px;
     height: 60px;
-    font-size: 24px;
   }
+
   .book {
     flex-direction: column;
     align-items: center;
   }
+
   .page {
     width: 90vw;
-    max-width: 400px;
+    max-width: 350px;
     height: 300px;
-    font-size: 24px;
   }
-  textarea {
-    font-size: 24px;
-  }
+
   .dedicatoria {
     position: static;
     width: 90vw;
+    margin: 10px auto;
     max-height: none;
-    margin: 20px auto 40px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: none;
+    border-radius: 8px;
   }
+
   .controls {
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }
